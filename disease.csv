@@ -1,0 +1,13 @@
+fatigue,breast_lump,breast_pain,skin_change,nipple_discharge,cough,smoking,chest_pain,short_breath,wheezing,heart_pain,sweating,disease
+1,1,1,1,1,0,0,0,0,0,0,0,Breast Cancer
+1,1,0,1,1,0,0,0,0,0,0,0,Breast Cancer
+0,1,0,1,0,0,0,0,0,0,0,0,Breast Cancer
+1,0,0,0,0,1,1,1,1,0,0,0,Lung Cancer
+1,0,0,0,0,1,1,0,1,0,0,0,Lung Cancer
+0,0,0,0,0,1,1,1,1,0,0,0,Lung Cancer
+1,0,0,0,0,0,0,1,1,0,1,1,Heart Attack
+1,0,0,0,0,0,0,1,0,0,1,1,Heart Attack
+0,0,0,0,0,0,0,1,1,0,1,0,Heart Attack
+0,0,0,0,0,0,0,0,1,1,0,0,Asthma
+1,0,0,0,0,0,0,0,1,1,0,0,Asthma
+0,0,0,0,0,0,0,0,1,1,0,0,Asthma
