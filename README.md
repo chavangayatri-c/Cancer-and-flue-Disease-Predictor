@@ -1,103 +1,36 @@
-# Disease Prediction System using Machine Learning
+# 🏥 Disease Prediction Using Machine Learning
 
-## 📌 Project Description
-This project is a Machine Learning–based Disease Prediction System where users enter symptoms and the system predicts the possible disease.
+## 📌 Objective
+To predict the possibility of diseases based on patient medical data using Machine Learning classification techniques.
 
-The model is trained using a CSV dataset and uses a Decision Tree Classifier algorithm.
+## 📌 Approach
+- Use structured medical datasets
+- Apply supervised classification algorithms
+- Predict diseases based on patient inputs
 
----
-
-## 🧠 Machine Learning Concept Used
-- Supervised Learning
-- Classification
-- Decision Tree Algorithm
-
----
-
-## 🩺 Diseases Covered
+## 📌 Diseases Covered
+- Heart Disease
+- Diabetes
 - Breast Cancer
-- Lung Cancer
-- Heart Attack
-- Asthma
-- Flu
 
----
+## 📌 Features Used
+- Age
+- Gender
+- Glucose level
+- Blood pressure
+- Cholesterol
+- Symptoms (chest pain, fatigue, breast lump)
+- Smoking habit
 
-## 📂 Project Structure
-disease-project/
-│
-├── disease.csv
-├── disease.py
-├── README.md
+## 📌 Algorithms Used
+- Random Forest Classifier
+(Other algorithms like Logistic Regression, SVM, XGBoost can be added)
 
----
+## 📌 Dataset Source
+Sample structured medical dataset inspired by UCI Machine Learning Repository.
 
-## 📊 Dataset Description
-- Input values: 0 = No, 1 = Yes
-- Output column: disease
+## 📌 How to Run the Project
 
-### Dataset Columns
-fatigue  
-breast_lump  
-breast_pain  
-skin_change  
-nipple_discharge  
-cough  
-smoking  
-chest_pain  
-short_breath  
-wheezing  
-heart_pain  
-sweating  
-disease  
-
----
-
-## ⚙️ Requirements
-Install required Python libraries:
-
-pip install pandas  
-pip install numpy  
-pip install scikit-learn  
-
----
-
-## ▶️ How to Run the Project
-1. Open the project folder in VS Code
-2. Open Terminal
-3. Run the command:
-
-python disease.py
-
-4. Enter symptoms as 0 or 1
-5. The system will display the predicted disease
-
----
-
-## 🧪 Example Input
-fatigue: 1  
-cough: 1  
-chest_pain: 0  
-
----
-
-## 📈 Example Output
-Predicted Disease: Lung Cancer
-
----
-
-## 🚀 Future Improvements
-- Add more diseases
-- Create GUI using Tkinter
-- Create Web App using Streamlit
-- Improve accuracy with advanced models
-
----
-
-## 👩‍💻 Developed By
-Gayatri Chavan
-
----
-
-## ⚠️ Disclaimer
-This project is for educational purposes only and should not be used for real medical diagnosis.
+### 1️⃣ Install required libraries
+```bash
+pip install pandas scikit-learn
