@@ -1,63 +1,47 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 
-# -------------------------------
-# Load Dataset
-# -------------------------------
+# Load dataset
 data = pd.read_csv("disease.csv")
 
-# Features and Target
+# Features and target
 X = data.drop("disease", axis=1)
 y = data["disease"]
 
-# -------------------------------
-# Train Test Split
-# -------------------------------
+# Train-test split
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42
 )
 
-# -------------------------------
-# Train Model
-# -------------------------------
-model = DecisionTreeClassifier(random_state=42)
+# Train model
+model = RandomForestClassifier(random_state=42)
 model.fit(X_train, y_train)
 
-# -------------------------------
-# Model Accuracy
-# -------------------------------
+# Model accuracy
 y_pred = model.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
-print("\nModel Accuracy:", accuracy * 100, "%")
+print("Model Accuracy:", round(accuracy * 100, 2), "%")
 
-# -------------------------------
-# USER INPUT SECTION
-# -------------------------------
-print("\n--- ENTER PATIENT SYMPTOMS ---")
-print("Enter 1 for YES, 0 for NO\n")
+print("\n--- Enter Patient Details ---")
 
-user_input = []
+# User input
+age = int(input("Age: "))
+gender = int(input("Gender (1 = Male, 0 = Female): "))
+glucose = int(input("Glucose Level: "))
+bp = int(input("Blood Pressure: "))
+cholesterol = int(input("Cholesterol Level: "))
+breast_lump = int(input("Breast Lump (1 = Yes, 0 = No): "))
+chest_pain = int(input("Chest Pain (1 = Yes, 0 = No): "))
+fatigue = int(input("Fatigue (1 = Yes, 0 = No): "))
+smoking = int(input("Smoking (1 = Yes, 0 = No): "))
 
-for symptom in X.columns:
-    while True:
-        try:
-            value = int(input(f"{symptom}: "))
-            if value in [0, 1]:
-                user_input.append(value)
-                break
-            else:
-                print("Please enter only 0 or 1")
-        except ValueError:
-            print("Invalid input. Enter 0 or 1 only.")
+# Create input dataframe
+user_data = pd.DataFrame([[age, gender, glucose, bp, cholesterol,
+                           breast_lump, chest_pain, fatigue, smoking]],
+                          columns=X.columns)
 
-# Convert to DataFrame (IMPORTANT)
-user_df = pd.DataFrame([user_input], columns=X.columns)
-
-# -------------------------------
 # Prediction
-# -------------------------------
-prediction = model.predict(user_df)
-
-print("\n✅ Predicted Disease:", prediction[0])
+result = model.predict(user_data)
+print("\nPredicted Disease:", result[0])
