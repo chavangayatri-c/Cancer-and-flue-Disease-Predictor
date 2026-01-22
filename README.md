@@ -12,7 +12,7 @@ To predict the possibility of diseases based on patient medical data using Machi
 - Heart Disease
 - Diabetes
 - Breast Cancer
-
+- normal then patient healthy
 ## 📌 Features Used
 - Age
 - Gender
