@@ -3,60 +3,61 @@ from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
 
-# -----------------------------
-# Load dataset
-# -----------------------------
+# -------------------------------
+# Load Dataset
+# -------------------------------
 data = pd.read_csv("disease.csv")
 
-# Split input (X) and output (y)
+# Features and Target
 X = data.drop("disease", axis=1)
 y = data["disease"]
 
-# -----------------------------
-# Train-test split
-# -----------------------------
+# -------------------------------
+# Train Test Split
+# -------------------------------
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42
 )
 
-# -----------------------------
-# Train model
-# -----------------------------
-model = DecisionTreeClassifier()
+# -------------------------------
+# Train Model
+# -------------------------------
+model = DecisionTreeClassifier(random_state=42)
 model.fit(X_train, y_train)
 
-# -----------------------------
-# Test model accuracy
-# -----------------------------
+# -------------------------------
+# Model Accuracy
+# -------------------------------
 y_pred = model.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
-print("Model Accuracy:", accuracy * 100, "%")
+print("\nModel Accuracy:", accuracy * 100, "%")
 
-# -----------------------------
-# Predict new patient data
-# -----------------------------
-# FEATURES (TOTAL = 12)
-# fatigue, breast_lump, breast_pain, skin_change, nipple_discharge,
-# cough, smoking, chest_pain, short_breath, wheezing,
-# heart_pain, sweating
+# -------------------------------
+# USER INPUT SECTION
+# -------------------------------
+print("\n--- ENTER PATIENT SYMPTOMS ---")
+print("Enter 1 for YES, 0 for NO\n")
 
-new_data = pd.DataFrame(
-    [[
-        1,  # fatigue
-        0,  # breast_lump
-        0,  # breast_pain
-        0,  # skin_change
-        0,  # nipple_discharge
-        1,  # cough
-        1,  # smoking
-        1,  # chest_pain
-        1,  # short_breath
-        0,  # wheezing
-        0,  # heart_pain
-        0   # sweating
-    ]],
-    columns=X.columns
-)
+user_input = []
 
-result = model.predict(new_data)
-print("Predicted Disease:", result[0])
+for symptom in X.columns:
+    while True:
+        try:
+            value = int(input(f"{symptom}: "))
+            if value in [0, 1]:
+                user_input.append(value)
+                break
+            else:
+                print("Please enter only 0 or 1")
+        except ValueError:
+            print("Invalid input. Enter 0 or 1 only.")
+
+# Convert to DataFrame (IMPORTANT)
+user_df = pd.DataFrame([user_input], columns=X.columns)
+
+# -------------------------------
+# Prediction
+# -------------------------------
+prediction = model.predict(user_df)
+
+print("\n✅ Predicted Disease:", prediction[0])
