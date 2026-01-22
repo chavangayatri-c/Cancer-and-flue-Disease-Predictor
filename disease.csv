@@ -1,13 +1,10 @@
-fatigue,breast_lump,breast_pain,skin_change,nipple_discharge,cough,smoking,chest_pain,short_breath,wheezing,heart_pain,sweating,disease
-1,1,1,1,1,0,0,0,0,0,0,0,Breast Cancer
-1,1,0,1,1,0,0,0,0,0,0,0,Breast Cancer
-0,1,0,1,0,0,0,0,0,0,0,0,Breast Cancer
-1,0,0,0,0,1,1,1,1,0,0,0,Lung Cancer
-1,0,0,0,0,1,1,0,1,0,0,0,Lung Cancer
-0,0,0,0,0,1,1,1,1,0,0,0,Lung Cancer
-1,0,0,0,0,0,0,1,1,0,1,1,Heart Attack
-1,0,0,0,0,0,0,1,0,0,1,1,Heart Attack
-0,0,0,0,0,0,0,1,1,0,1,0,Heart Attack
-0,0,0,0,0,0,0,0,1,1,0,0,Asthma
-1,0,0,0,0,0,0,0,1,1,0,0,Asthma
-0,0,0,0,0,0,0,0,1,1,0,0,Asthma
+age,gender,glucose,bp,cholesterol,breast_lump,chest_pain,fatigue,smoking,disease
+45,1,180,140,240,0,1,1,1,Heart Disease
+50,0,160,130,220,0,0,1,0,Diabetes
+38,0,110,120,190,1,0,0,0,Breast Cancer
+60,1,200,150,260,0,1,1,1,Heart Disease
+42,0,170,135,210,0,0,1,0,Diabetes
+55,0,115,125,200,1,0,0,0,Breast Cancer
+48,1,190,145,250,0,1,1,1,Heart Disease
+35,0,140,120,180,0,0,1,0,Diabetes
+52,0,118,130,195,1,0,0,0,Breast Cancer
